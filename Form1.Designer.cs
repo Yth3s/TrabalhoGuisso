@@ -70,6 +70,7 @@
             txtSenha.Font = new Font("Segoe UI", 20F);
             txtSenha.Location = new Point(59, 66);
             txtSenha.Name = "txtSenha";
+            txtSenha.PasswordChar = '*';
             txtSenha.Size = new Size(214, 43);
             txtSenha.TabIndex = 3;
             txtSenha.TextChanged += txtSenha_TextChanged;

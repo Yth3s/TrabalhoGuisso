@@ -5,9 +5,12 @@ namespace TrabalhoGuisso
         private static Login _instance;
         private Usuario _usuario;
         private Usuario _admin;
+        private Credencial _adminCredencial;
         private Login()
         {
             InitializeComponent();
+            _adminCredencial = new Credencial() { Senha = "000000", Gerente = true };
+            _admin = new Usuario() { Nome = "Admin", Credencial = _adminCredencial };
         }
 
         public static Login GetInstance()
@@ -30,31 +33,37 @@ namespace TrabalhoGuisso
 
         private void txtSenha_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
-            {
-                if (txtLogin.Text == _admin.Nome && txtSenha.Text == _admin.Credencial.Senha) 
-                {
-                    Sistema.GetInstance(_admin);
-                }
-            }
             if (e.KeyCode == Keys.Enter)
             {
-
-                foreach (Usuario u in UsuarioRepository.FindAll())
+                int AtivaAlerta = 0;
+                if (txtLogin.Text == _admin.Nome && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == _admin.Credencial.Senha)
                 {
-                    if (txtLogin.Text == u.Nome && txtSenha.Text == u.Credencial.Senha)
+                    AtivaAlerta = 1;
+                    Hide();
+                    Sistema.GetInstance(_admin).Show();
+                }
+                else
+                {
+                    foreach (Usuario u in UsuarioRepository.FindAll())
                     {
-                        _usuario = u;
-                        Sistema.GetInstance(_usuario);
-                    }
-                    else
-                    {
-                        lblAlerta.Visible = true;
+                        if (txtLogin.Text == u.Nome && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == u.Credencial.Senha)
+                        {
+                            _usuario = u;
+                            AtivaAlerta = 1;
+                            Hide();
+                            Sistema.GetInstance(_usuario).Show();
+                            break;
+
+                        }
                     }
                 }
                 txtLogin.Clear();
                 txtSenha.Clear();
                 txtLogin.Focus();
+                if (AtivaAlerta == 0) 
+                {
+                    lblAlerta.Visible = true;
+                }
             }
         }
 

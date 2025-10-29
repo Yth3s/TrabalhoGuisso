@@ -29,5 +29,10 @@ namespace TrabalhoGuisso
             Close();
             Login.GetInstance().Show();
         }
+
+        private void mnuRelatorioUsuarios_Click(object sender, EventArgs e)
+        {
+            new Usuarios().Show();
+        }
     }
 }
