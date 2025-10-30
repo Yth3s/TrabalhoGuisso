@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Org.BouncyCastle.Asn1.Mozilla;
 
 namespace TrabalhoGuisso
 {
-    public partial class Usuarios : Form
+    public partial class RelatorioUsuarios : Form
     {
-        public Usuarios()
+        private static RelatorioUsuarios _instance;
+        private RelatorioUsuarios()
         {
             InitializeComponent();
             lstUsuarios.Items.Add("Id: 0, Usuario: Admin");
@@ -20,6 +22,12 @@ namespace TrabalhoGuisso
             {
                 lstUsuarios.Items.Add("Id: " + u.Id + ", Usuario: " + u.Nome);
             }
+        }
+
+        public static RelatorioUsuarios GetInstance() 
+        {
+            _instance = new RelatorioUsuarios();
+            return _instance;
         }
     }
 }

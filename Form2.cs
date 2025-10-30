@@ -32,7 +32,11 @@ namespace TrabalhoGuisso
 
         private void mnuRelatorioUsuarios_Click(object sender, EventArgs e)
         {
-            new Usuarios().Show();
+           RelatorioUsuarios relatoriousuario = RelatorioUsuarios.GetInstance();
+            relatoriousuario.MdiParent = this;
+            relatoriousuario.Show();
+            relatoriousuario.BringToFront();
+            relatoriousuario.WindowState = FormWindowState.Normal;
         }
     }
 }

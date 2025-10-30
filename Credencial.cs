@@ -14,9 +14,11 @@ namespace TrabalhoGuisso
     {
         public const String SALT = "1FnM6_";
 
+        private Usuario _usuario;
         private String _senha;
 
         public Int64 Id { get; set; }
+
         public String Senha 
         {
             get => _senha;
@@ -25,11 +27,23 @@ namespace TrabalhoGuisso
                 _senha = ComputeSHA256(value,SALT);
             } 
         }
+
         public Boolean Gerente { get; set; }
+
         public DateTime UltimoAcesso { get; set; }
         [ForeignKey("Usuario_Id")]
         [Unicode]
-        public Usuario Usuario { get; set; }
+
+        public Usuario Usuario 
+        {
+            get => Usuario;
+            set 
+            {
+                _usuario = value;
+                value.Credencial = this;
+            } 
+        }
+
         public static String ComputeSHA256(String input, String salt)
         {
             String hash = String.Empty;

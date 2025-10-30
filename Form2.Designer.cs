@@ -73,7 +73,7 @@
             // mnuCadastroUsuarios
             // 
             mnuCadastroUsuarios.Name = "mnuCadastroUsuarios";
-            mnuCadastroUsuarios.Size = new Size(180, 22);
+            mnuCadastroUsuarios.Size = new Size(114, 22);
             mnuCadastroUsuarios.Text = "Usua&rio";
             // 
             // mnuRelatorio
@@ -86,7 +86,7 @@
             // mnuRelatorioUsuarios
             // 
             mnuRelatorioUsuarios.Name = "mnuRelatorioUsuarios";
-            mnuRelatorioUsuarios.Size = new Size(180, 22);
+            mnuRelatorioUsuarios.Size = new Size(119, 22);
             mnuRelatorioUsuarios.Text = "&Usuários";
             mnuRelatorioUsuarios.Click += mnuRelatorioUsuarios_Click;
             // 
@@ -100,7 +100,7 @@
             // mnuSobre
             // 
             mnuSobre.Name = "mnuSobre";
-            mnuSobre.Size = new Size(180, 22);
+            mnuSobre.Size = new Size(104, 22);
             mnuSobre.Text = "S&obre";
             // 
             // Sistema
@@ -109,6 +109,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(menuStrip1);
+            IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "Sistema";
             Text = "Sistema";

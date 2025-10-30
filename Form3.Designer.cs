@@ -1,6 +1,6 @@
 ﻿namespace TrabalhoGuisso
 {
-    partial class Usuarios
+    partial class RelatorioUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -35,26 +35,28 @@
             // 
             // pnlUsuarios
             // 
+            pnlUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlUsuarios.Controls.Add(lstUsuarios);
             pnlUsuarios.Location = new Point(12, 12);
             pnlUsuarios.Name = "pnlUsuarios";
-            pnlUsuarios.Size = new Size(776, 426);
+            pnlUsuarios.Size = new Size(245, 385);
             pnlUsuarios.TabIndex = 0;
             // 
             // lstUsuarios
             // 
+            lstUsuarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lstUsuarios.FormattingEnabled = true;
             lstUsuarios.ItemHeight = 15;
             lstUsuarios.Location = new Point(3, 3);
             lstUsuarios.Name = "lstUsuarios";
-            lstUsuarios.Size = new Size(232, 379);
+            lstUsuarios.Size = new Size(239, 379);
             lstUsuarios.TabIndex = 0;
             // 
             // Usuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(269, 409);
             Controls.Add(pnlUsuarios);
             Name = "Usuarios";
             Text = "Form3";

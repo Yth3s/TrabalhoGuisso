@@ -54,6 +54,7 @@
             // 
             // lblAlerta
             // 
+            lblAlerta.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblAlerta.AutoSize = true;
             lblAlerta.BackColor = Color.Yellow;
             lblAlerta.Font = new Font("Segoe UI", 15F);
@@ -67,6 +68,7 @@
             // 
             // txtSenha
             // 
+            txtSenha.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtSenha.Font = new Font("Segoe UI", 20F);
             txtSenha.Location = new Point(59, 66);
             txtSenha.Name = "txtSenha";
@@ -78,6 +80,7 @@
             // 
             // txtLogin
             // 
+            txtLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtLogin.Font = new Font("Segoe UI", 20F);
             txtLogin.Location = new Point(59, 10);
             txtLogin.Name = "txtLogin";
@@ -88,6 +91,7 @@
             // 
             // picSenha
             // 
+            picSenha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             picSenha.Location = new Point(3, 59);
             picSenha.Name = "picSenha";
             picSenha.Size = new Size(50, 50);
@@ -96,6 +100,7 @@
             // 
             // picLogin
             // 
+            picLogin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             picLogin.Location = new Point(3, 3);
             picLogin.Name = "picLogin";
             picLogin.Size = new Size(50, 50);
