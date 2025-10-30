@@ -15,6 +15,8 @@ namespace TrabalhoGuisso
         public String Nome { get; set; }
         public String Telefone { get; set; }
         public String Gmail { get; set; }
+        [ForeignKey("Credencial_Id")]
+        [Unicode]
         public Credencial Credencial { get; set; }
     }
 }

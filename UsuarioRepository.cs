@@ -10,24 +10,32 @@ namespace TrabalhoGuisso
 {
     public class UsuarioRepository
     {
-        public static void SaveOrUpdate(Usuario u) 
+        public static void Save(Usuario u) 
         {
             try
             {
                 using (Repository DbContext = new Repository()) 
                 {
-                    if (u.Id == 0)
-                    {
-                        DbContext.Usuarios.Add(u);
-                    }
-                    else 
-                    {
-                        DbContext.Entry(u).State = EntityState.Modified;
-                    }
-                    DbContext.SaveChanges();
+                   DbContext.Usuarios.Add(u);
+                   DbContext.SaveChanges();
                 }
             }
             catch(Exception)
+            {
+                throw;
+            }
+        }
+        public static void Update(Usuario u)
+        {
+            try
+            {
+                using (Repository DbContext = new Repository())
+                {
+                    DbContext.Entry(u).State = EntityState.Modified;
+                    DbContext.SaveChanges();
+                }
+            }
+            catch (Exception)
             {
                 throw;
             }

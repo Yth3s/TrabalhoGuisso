@@ -17,7 +17,6 @@ namespace TrabalhoGuisso
         private RelatorioUsuarios()
         {
             InitializeComponent();
-            lstUsuarios.Items.Add("Id: 0, Usuario: Admin");
             foreach (Usuario u in UsuarioRepository.FindAll()) 
             {
                 lstUsuarios.Items.Add("Id: " + u.Id + ", Usuario: " + u.Nome);

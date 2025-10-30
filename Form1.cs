@@ -4,13 +4,9 @@ namespace TrabalhoGuisso
     {
         private static Login _instance;
         private Usuario _usuario;
-        private Usuario _admin;
-        private Credencial _adminCredencial;
         private Login()
         {
             InitializeComponent();
-            _adminCredencial = new Credencial() { Senha = "000000", Gerente = true };
-            _admin = new Usuario() { Nome = "Admin", Credencial = _adminCredencial };
         }
 
         public static Login GetInstance()
@@ -36,36 +32,28 @@ namespace TrabalhoGuisso
             if (e.KeyCode == Keys.Enter)
             {
                 int AtivaAlerta = 0;
-                if (txtLogin.Text == _admin.Nome && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == _admin.Credencial.Senha)
+                foreach (Usuario u in UsuarioRepository.FindAll())
                 {
-                    AtivaAlerta = 1;
-                    Hide();
-                    Sistema.GetInstance(_admin).Show();
-                }
-                else
-                {
-                    foreach (Usuario u in UsuarioRepository.FindAll())
+                    if (txtLogin.Text == u.Nome && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == u.Credencial.Senha)
                     {
-                        if (txtLogin.Text == u.Nome && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == u.Credencial.Senha)
-                        {
-                            _usuario = u;
-                            AtivaAlerta = 1;
-                            Hide();
-                            Sistema.GetInstance(_usuario).Show();
-                            break;
+                        _usuario = u;
+                        AtivaAlerta = 1;
+                        Hide();
+                        Sistema.GetInstance(_usuario).Show();
+                        break;
 
-                        }
                     }
                 }
                 txtLogin.Clear();
                 txtSenha.Clear();
                 txtLogin.Focus();
-                if (AtivaAlerta == 0) 
+                if (AtivaAlerta == 0)
                 {
                     lblAlerta.Visible = true;
                 }
             }
         }
+
 
         private void txtLogin_TextChanged(object sender, EventArgs e)
         {
