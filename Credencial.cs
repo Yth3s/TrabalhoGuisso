@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
+using System.Configuration;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Runtime.CompilerServices;
 
 namespace TrabalhoGuisso
 {
@@ -53,6 +56,11 @@ namespace TrabalhoGuisso
             }
 
             return hash;
+        }
+
+        public override String ToString() 
+        {
+            return "Senha: " + this.Senha;
         }
     }
 }

@@ -36,7 +36,7 @@
             mnuRelatorio = new ToolStripMenuItem();
             mnuRelatorioUsuarios = new ToolStripMenuItem();
             mnuAjuda = new ToolStripMenuItem();
-            mnuSobre = new ToolStripMenuItem();
+            mnuAjudaSobre = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,16 +92,17 @@
             // 
             // mnuAjuda
             // 
-            mnuAjuda.DropDownItems.AddRange(new ToolStripItem[] { mnuSobre });
+            mnuAjuda.DropDownItems.AddRange(new ToolStripItem[] { mnuAjudaSobre });
             mnuAjuda.Name = "mnuAjuda";
             mnuAjuda.Size = new Size(50, 20);
             mnuAjuda.Text = "A&juda";
             // 
-            // mnuSobre
+            // mnuAjudaSobre
             // 
-            mnuSobre.Name = "mnuSobre";
-            mnuSobre.Size = new Size(104, 22);
-            mnuSobre.Text = "S&obre";
+            mnuAjudaSobre.Name = "mnuAjudaSobre";
+            mnuAjudaSobre.Size = new Size(180, 22);
+            mnuAjudaSobre.Text = "S&obre";
+            mnuAjudaSobre.Click += mnuAjudaSobre_Click;
             // 
             // Sistema
             // 
@@ -113,6 +114,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Sistema";
             Text = "Sistema";
+            FormClosing += Sistema_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -130,6 +132,6 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem mnuAjuda;
         private ToolStripMenuItem mnuRelatorioUsuarios;
-        private ToolStripMenuItem mnuSobre;
+        private ToolStripMenuItem mnuAjudaSobre;
     }
 }

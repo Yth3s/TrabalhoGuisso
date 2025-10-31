@@ -47,5 +47,33 @@ namespace TrabalhoGuisso
                 throw;
             }
         }
+        public static Usuario FindById(int i) 
+        {
+            try
+            {
+                using (Repository DbContext = new Repository()) 
+                {
+                    return DbContext.Usuarios.Find(i);
+                }
+            } 
+            catch 
+            { 
+                throw;
+            }
+        }
+        public static List<Usuario> FindAllWithCredencial() 
+        {
+            try 
+            {
+                using (Repository DbContext = new Repository()) 
+                {
+                    return DbContext.Usuarios.Include("Credencial").ToList();
+                }
+            }
+            catch 
+            { 
+                throw;
+            }
+        }
     }
 }

@@ -32,11 +32,25 @@ namespace TrabalhoGuisso
 
         private void mnuRelatorioUsuarios_Click(object sender, EventArgs e)
         {
-           RelatorioUsuarios relatoriousuario = RelatorioUsuarios.GetInstance();
+            RelatorioUsuarios relatoriousuario = RelatorioUsuarios.GetInstance();
             relatoriousuario.MdiParent = this;
             relatoriousuario.Show();
             relatoriousuario.BringToFront();
             relatoriousuario.WindowState = FormWindowState.Normal;
+        }
+
+        private void Sistema_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Login.GetInstance().Show();
+        }
+
+        private void mnuAjudaSobre_Click(object sender, EventArgs e)
+        {
+            Sobre ajudasobre = Sobre.GetInstance();
+            ajudasobre.MdiParent = this;
+            ajudasobre.Show();
+            ajudasobre.BringToFront();
+            ajudasobre.WindowState = FormWindowState.Normal;
         }
     }
 }

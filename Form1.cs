@@ -31,26 +31,27 @@ namespace TrabalhoGuisso
         {
             if (e.KeyCode == Keys.Enter)
             {
-                int AtivaAlerta = 0;
-                foreach (Usuario u in UsuarioRepository.FindAll())
+                List<Usuario> listuser = new List<Usuario>();
+                listuser = UsuarioRepository.FindAllWithCredencial();
+                foreach (Usuario u in listuser) 
                 {
-                    if (txtLogin.Text == u.Nome && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == u.Credencial.Senha)
+                    if (txtLogin.Text == u.Gmail && Credencial.ComputeSHA256(txtSenha.Text, Credencial.SALT) == u.Credencial.Senha)
                     {
-                        _usuario = u;
-                        AtivaAlerta = 1;
+                        txtLogin.Clear();
+                        txtSenha.Clear();
+                        txtLogin.Focus();
                         Hide();
-                        Sistema.GetInstance(_usuario).Show();
-                        break;
-
+                        Sistema.GetInstance(u).Show();
+                    }
+                    else
+                    {
+                        txtLogin.Clear();
+                        txtSenha.Clear();
+                        txtLogin.Focus();
+                        lblAlerta.Visible = true;
                     }
                 }
-                txtLogin.Clear();
-                txtSenha.Clear();
-                txtLogin.Focus();
-                if (AtivaAlerta == 0)
-                {
-                    lblAlerta.Visible = true;
-                }
+                
             }
         }
 
