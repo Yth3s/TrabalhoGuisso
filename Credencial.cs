@@ -31,18 +31,8 @@ namespace TrabalhoGuisso
         public Boolean Gerente { get; set; }
 
         public DateTime UltimoAcesso { get; set; }
-        [ForeignKey("Usuario_Id")]
-        [Unicode]
 
-        public Usuario Usuario 
-        {
-            get => Usuario;
-            set 
-            {
-                _usuario = value;
-                value.Credencial = this;
-            } 
-        }
+        public Usuario Usuario { get; set; }
 
         public static String ComputeSHA256(String input, String salt)
         {

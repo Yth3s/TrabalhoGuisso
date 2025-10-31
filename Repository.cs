@@ -18,13 +18,12 @@ namespace TrabalhoGuisso
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Credencial> Credenciais { get; set; }
         public Repository() 
-        { 
-            Database.EnsureCreated();
-            if (Database.EnsureCreated() == true) 
+        {
+            if (Database.EnsureCreated()) 
             {
-                _adminCredencial = new Credencial() { Senha = "000000", Gerente = true };
-                _admin = new Usuario() { Nome = "Admin", Credencial = _adminCredencial };
-                UsuarioRepository.Save(_admin);
+                Credencial _adminCredencial = new Credencial() { Senha = "000000", Gerente = true };
+                Usuario _admin = new Usuario() { Nome = "Admin", Gmail = "", Telefone = "", Credencial = _adminCredencial };
+                UsuarioRepository.SaveOrUpdate(_admin);
             }
         }
 
